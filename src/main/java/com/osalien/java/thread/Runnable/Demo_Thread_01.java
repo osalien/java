@@ -1,4 +1,4 @@
-package com.osalien.java.thread;
+package com.osalien.java.thread.Runnable;
 
 public class Demo_Thread_01 {
 
