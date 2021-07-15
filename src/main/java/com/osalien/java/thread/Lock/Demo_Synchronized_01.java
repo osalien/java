@@ -1,4 +1,4 @@
-package com.osalien.java.thread;
+package com.osalien.java.thread.Lock;
 
 public class Demo_Synchronized_01 {
     /**

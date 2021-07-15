@@ -1,4 +1,4 @@
-package com.osalien.java.thread;
+package com.osalien.java.thread.Lock;
 
 public class TicketsSeller extends Thread {
     private static int tickets = 100;
