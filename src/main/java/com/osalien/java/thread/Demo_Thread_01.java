@@ -8,7 +8,7 @@ public class Demo_Thread_01 {
         //5,开启线程
         mt.start();
 
-        for(int i = 0; i < 3000; i++) {
+        for (int i = 0; i < 3000; i++) {
             System.out.println("bb");
         }
     }

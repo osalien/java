@@ -11,7 +11,7 @@ public class Demo_Runnable_01 {
         //6,开启线程
         t.start();
 
-        for(int i = 0; i < 3000; i++) {
+        for (int i = 0; i < 3000; i++) {
             System.out.println("bb");
         }
     }

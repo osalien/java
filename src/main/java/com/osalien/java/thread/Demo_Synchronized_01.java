@@ -2,8 +2,7 @@ package com.osalien.java.thread;
 
 public class Demo_Synchronized_01 {
     /**
-     * @param args
-     * 需求:铁路售票,一共100张,通过四个窗口卖完.
+     * @param args 需求:铁路售票,一共100张,通过四个窗口卖完.
      */
     public static void main(String[] args) {
         TicketsSeller t1 = new TicketsSeller();
