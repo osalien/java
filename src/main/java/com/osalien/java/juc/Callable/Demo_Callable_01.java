@@ -1,7 +1,6 @@
-package com.osalien.java.thread.Callable;
+package com.osalien.java.juc.Callable;
 
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;

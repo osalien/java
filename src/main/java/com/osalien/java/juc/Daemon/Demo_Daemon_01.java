@@ -1,4 +1,4 @@
-package com.osalien.java.thread.Daemon;
+package com.osalien.java.juc.Daemon;
 
 /**
  * 主线程结束，用户线程还没结束，jvm存活

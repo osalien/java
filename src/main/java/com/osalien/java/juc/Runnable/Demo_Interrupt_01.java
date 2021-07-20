@@ -1,4 +1,4 @@
-package com.osalien.java.thread.Runnable;
+package com.osalien.java.juc.Runnable;
 
 /**
  * @author zhaoyuan

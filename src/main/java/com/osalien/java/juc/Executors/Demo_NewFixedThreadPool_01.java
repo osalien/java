@@ -1,4 +1,4 @@
-package com.osalien.java.thread.Executors;
+package com.osalien.java.juc.Executors;
 import java.util.concurrent.*;
 
 /**

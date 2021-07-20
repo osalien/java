@@ -1,25 +1,27 @@
-package com.osalien.java.thread.Lock;
+package com.osalien.java.juc.Lock;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * 测试不加读锁
+ * 测试加读锁
  * 会读到写的中间值。
  * @author zhaoyuan
  * @date 2021-07-15
  */
-public class Demo_ReadWriteLock_01 {
+public class Demo_ReadWriteLock_02 {
 
-    public static void test(TestMethods testMethods) {
+    private static ReadWriteLock lock = new ReentrantReadWriteLock();
+
+    public static void test(TestMethods_02 testMethods) {
         ExecutorService pools = Executors.newFixedThreadPool(20);
         for (int i = 0; i < 20; i++) {
             pools.execute(new Runnable() {
                 @Override
                 public void run() {
+                    lock.readLock().lock();
                     try {
                         long num = testMethods.get();
                         if(num > TestMethods.MAX_VALUE){
@@ -29,6 +31,8 @@ public class Demo_ReadWriteLock_01 {
 
                     } catch (InterruptedException e) {
                         e.printStackTrace();
+                    }finally {
+                        lock.readLock().unlock();
                     }
                 }
             });
@@ -39,10 +43,13 @@ public class Demo_ReadWriteLock_01 {
             pools.execute(new Runnable() {
                 @Override
                 public void run() {
+//                    lock.writeLock().lock();
                     try {
                         testMethods.put();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
+                    } finally {
+//                        lock.writeLock().unlock();
                     }
                 }
             });
@@ -51,7 +58,7 @@ public class Demo_ReadWriteLock_01 {
     }
 }
 
-class TestMethods{
+class TestMethods_02{
     public static final long MAX_VALUE = 3;
 
     private long num;
@@ -66,7 +73,7 @@ class TestMethods{
     public void put() throws InterruptedException {
         System.out.println(Thread.currentThread().getName()+"-write ready...");
         num++;
-        Thread.sleep(1000);
+        Thread.sleep(10);
         if(num>MAX_VALUE){
             num = 0;
         }
@@ -74,8 +81,8 @@ class TestMethods{
     }
 
     public static void main(String[] args) {
-        TestMethods testMethods = new TestMethods();
-        Demo_ReadWriteLock_01.test(testMethods);
+        TestMethods_02 testMethods = new TestMethods_02();
+        Demo_ReadWriteLock_02.test(testMethods);
     }
 }
 

@@ -1,4 +1,4 @@
-package com.osalien.java.thread.Lock;
+package com.osalien.java.juc.Synchronized;
 
 public class TicketsSeller extends Thread {
     private static int tickets = 100;
