@@ -1,6 +1,7 @@
 package com.osalien.java.juc.Runnable;
 
 /**
+ * 线程中断
  * @author zhaoyuan
  * @date 2021/7/14
  */
