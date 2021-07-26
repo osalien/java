@@ -1,11 +1,8 @@
-package com.osalien.java.juc.Collection;
+package com.osalien.java.juc.CollectionThreadSafe;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * HashMap集合线程不安全案例

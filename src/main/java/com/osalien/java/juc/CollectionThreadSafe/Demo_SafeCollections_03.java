@@ -1,23 +1,21 @@
-package com.osalien.java.juc.Collection;
+package com.osalien.java.juc.CollectionThreadSafe;
 
-import java.util.List;
-import java.util.UUID;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.*;
 
 /**
  * List集合线程安全解决方案：
  *      1. Vector  比较古老
- *      2. Collections  比较古老
- *   √  3. CopyOnWriteArrayList  常用
+ *   √  2. Collections  比较古老
+ *      3. CopyOnWriteArrayList
  * @author zhaoyuan
  * @date 2021-07-26
  */
-public class Demo_SafeCopyOnWriteArrayList_04 {
+public class Demo_SafeCollections_03 {
 
     public static void main(String[] args) {
 
-        // CopyOnWriteArrayList解决
-        List<String> list = new CopyOnWriteArrayList<>();
+        // Collections解决
+        List<String> list = Collections.synchronizedList(new ArrayList<>());
 
         for (int i = 0; i < 30; i++) {
             new Thread(() -> {

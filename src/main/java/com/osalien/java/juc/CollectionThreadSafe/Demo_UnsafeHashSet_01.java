@@ -1,4 +1,4 @@
-package com.osalien.java.juc.Collection;
+package com.osalien.java.juc.CollectionThreadSafe;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArraySet;
