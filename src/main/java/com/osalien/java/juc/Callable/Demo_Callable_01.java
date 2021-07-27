@@ -15,7 +15,7 @@ public class Demo_Callable_01 {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         Demo_Callable_01 demo_callable_01 = new Demo_Callable_01();
-        demo_callable_01.test1();
+//        demo_callable_01.test1();
         demo_callable_01.test2();
     }
 
@@ -29,7 +29,9 @@ public class Demo_Callable_01 {
         FutureTask futureTask = new FutureTask(myCallable);
         new Thread(futureTask).start();
 //        futureTask.run(); //在主线程
+        System.out.println(Thread.currentThread().getName()+"-"+futureTask.isDone());
         System.out.println(Thread.currentThread().getName()+"-"+futureTask.get());
+        System.out.println(Thread.currentThread().getName()+"-"+futureTask.isDone());
     }
 
     /**
@@ -64,6 +66,7 @@ public class Demo_Callable_01 {
         public Object call() throws Exception {
 //            if(taskNum==5){ Thread.sleep(1000); }
             System.out.println("======="+Thread.currentThread().getName()+"-"+taskNum+"=======");
+            TimeUnit.SECONDS.sleep(5);
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("taskNum","Thread-"+taskNum);
             return jsonObject;
